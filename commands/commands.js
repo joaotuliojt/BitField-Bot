@@ -1,15 +1,11 @@
 const Discord = require('discord.js');
 const MessageEmbed = Discord.MessageEmbed;
 
-
-const attachment = new Discord.MessageAttachment('../assets/bitfield.png', 'bitfield.png');
-
-
 module.exports = {
   name: 'commands',
 
   async execute(message){
-    message.channel.send({ embeds: [embed], files: [attachment] });
+    message.channel.send({ embeds: [embed] });
   }
 }
 
@@ -17,47 +13,13 @@ module.exports = {
 const embed = new MessageEmbed()
 	.setColor('#53dd6c')
 	.setTitle('Comandos Bot BitField')
-	.setAuthor('BitField', 'attachment://bitfield.png')
+	.setAuthor('BitField', 'https://github.com/joaotuliojt/BitField-Bot/blob/main/assets/bitfieldTransparent.png?raw=true')
 	.setDescription('Aqui está os principais comandos do bot')
-	.setThumbnail('attachment://bitfield.png')
+	.setThumbnail('https://github.com/joaotuliojt/BitField-Bot/blob/main/assets/bitfield.png?raw=true')
 	.addFields(
-		{ name: 'bf.pokemon {pokemon}', value: 'Busque algum pokemon.' },
-		{ name: 'bf.clear {valor}', value: 'Limpe o chat do seu servidor.' },
+		{ name: 'bf.pokemon', value: 'Busque algum pokemon.', inline: true },
+		{ name: 'bf.clear', value: 'Limpe o chat do seu servidor.', inline: true },
 	)
-	.setImage('attachment://bitfield.png')
+	.setImage('https://github.com/joaotuliojt/BitField-Bot/blob/main/assets/bitfield.png?raw=true')
 	.setTimestamp()
-	.setFooter('Obrigado por usar BitField Bot', 'attachment://bitfield.png');
-
-
-/* const embed = {
-  color: "#53dd6c",
-	title: 'Comandos Bot BitField',
-	author: {
-		name: 'BitField',
-		icon_url: '../images/bitfield-removebg-preview.png',
-	},
-	description: 'Aqui está os principais comandos do bot',
-	thumbnail: {
-		url: '../images/bitfield.png',
-	},
-	fields: [
-		{
-			name: 'bf.pokemon {pokemon}',
-			value: 'Busque algum pokemon.',
-
-		},
-		{
-			name: 'bf.clear {valor}',
-			value: 'Limpe o chat do seu servidor.',
-			inline: false,
-		},
-	],
-	image: {
-		url: '../images/bitfield.png',
-	},
-	timestamp: new Date(),
-	footer: {
-		text: 'Obrigado por usar BitField Bot',
-		icon_url: '../images/bitfield-removebg-preview.png',
-	},
-} */
+	.setFooter('Obrigado por usar BitField Bot', 'https://github.com/joaotuliojt/BitField-Bot/blob/main/assets/bitfieldTransparent.png?raw=true');

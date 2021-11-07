@@ -3,6 +3,10 @@ const Discord = require('discord.js');
 module.exports = {
   name: 'clear',
   async execute(message, args){
+    if(!message.member.roles.cache.some(role => role.name === "Administradores"|| "Dono")){
+      message.reply("Você não tem permissão para este comando!")
+      return;
+    }
     const repeats = Number(args[0]);
     if(!repeats){
       message.reply('Insira a quantidade de mensagens para deletar.')
