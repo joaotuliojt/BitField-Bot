@@ -10,7 +10,7 @@ module.exports = {
   }
 }
 
-const commands = ['bf.pokemon', 'bf.clear', 'bf.ping']
+const commands = ['bf.pokemon', 'bf.clear', 'bf.ping', 'bf.quiz']
 const commandsFormatted = commands.map(command => inlineCode(command));
 
 const embed = new Discord.MessageEmbed()
@@ -19,7 +19,8 @@ const embed = new Discord.MessageEmbed()
 .addFields(
   {name: 'pokemon', value: `${commandsFormatted[0]}`, inline: true},
   {name: 'clear', value: `${commandsFormatted[1]}`, inline: true},
-  {name: 'ping', value: `${commandsFormatted[2]}`, inline: true}
+  {name: 'ping', value: `${commandsFormatted[2]}`, inline: true},
+  {name: 'quiz', value: `${commandsFormatted[3]}`, inline: true}
 )
 .setImage('https://github.com/joaotuliojt/BitField-Bot/blob/main/assets/bitfield.gif?raw=true')
 .setThumbnail('https://github.com/joaotuliojt/BitField-Bot/blob/main/assets/bitfield.png?raw=true')

@@ -17,7 +17,7 @@ for(const file of commandFiles){
 
 
 client.once('ready', () => {
-  client.user.setActivity('A lívia no inferno', { type: 'PLAYING' })
+  client.user.setActivity('Digite bf.help', { type: 'PLAYING' })
   console.log(`${client.user.tag} is ready!`)
 })
 
@@ -56,8 +56,19 @@ client.on('messageCreate', message =>{
     client.commands.get('commands').execute(message);
     return
   }
+  if(command === 'quiz'){
+    client.commands.get('helpQuiz').execute(message);
+    return
+  }
+  if(command === 'html-beginner' || 'js-begginer' || 'js-intermediate' || 'js-advanced'){
+    client.commands.get('getQuestion').execute(message, args);
+    return
+  }
+  
+  
   const user = userMention(message.member.user.id);
   message.reply({content: `${user} Comando não encontrado`, ephemeral: true})
 })
+
 
 client.login(token)

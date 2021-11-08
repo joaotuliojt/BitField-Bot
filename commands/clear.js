@@ -16,6 +16,6 @@ module.exports = {
     }
     message.channel.bulkDelete(repeats);
     const user = userMention(message.member.user.id)
-    message.reply(`${user} apagou ${repeats} ${repeats > 1 ? 'mensagens' : 'mensagem'}`);
+    message.reply(`${user} apagou ${repeats} ${repeats > 1 ? 'mensagens' : 'mensagem'}.`);
   }
 }
