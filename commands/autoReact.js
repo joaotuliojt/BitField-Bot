@@ -12,12 +12,12 @@ module.exports = {
   }
 }
 
-const emojis = ['😂', '😍', '🤩', '😋', '🤔', '😎']
+const emojis = ['😂', '😍', '🤩', '😋', '🤔', '😎', '👍', '🤮', '🙏'];
 
 function randomNumber(){
   return Math.floor(Math.random() * 100 + 1);
 }
 
 function selectPositionEmoji(){
-  return Math.floor(Math.random() * emojis.length + 1);
+  return Math.floor(Math.random() * emojis.length);
 }

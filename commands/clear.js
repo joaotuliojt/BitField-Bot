@@ -1,3 +1,4 @@
+const { userMention } = require('@discordjs/builders');
 const Discord = require('discord.js');
 
 module.exports = {
@@ -8,11 +9,13 @@ module.exports = {
       return;
     }
     const repeats = Number(args[0]);
-    if(!repeats){
-      message.reply('Insira a quantidade de mensagens para deletar.')
+
+    if(repeats < 1 ){
+      message.reply('Insira um valor válido');
       return;
     }
     message.channel.bulkDelete(repeats);
-    message.reply(`${repeats} mensagens deletadas`).then(msg => setTimeout(() =>{msg.delete(5000)}, 2000) );
+    const user = userMention(message.member.user.id)
+    message.reply(`${user} apagou ${repeats} ${repeats > 1 ? 'mensagens' : 'mensagem'}`);
   }
 }

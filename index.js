@@ -1,3 +1,4 @@
+const { userMention } = require('@discordjs/builders');
 const Discord = require('discord.js');
 const client = new Discord.Client({ intents: ["GUILDS", "GUILD_MEMBERS", "GUILD_BANS", "GUILD_INTEGRATIONS", "GUILD_INVITES", "GUILD_PRESENCES", "GUILD_MESSAGES", "GUILD_MESSAGE_REACTIONS",  "DIRECT_MESSAGES", "DIRECT_MESSAGE_REACTIONS"] })
 const fs = require('fs')
@@ -16,7 +17,7 @@ for(const file of commandFiles){
 
 
 client.once('ready', () => {
-  client.user.setActivity('Sendo desenvolvido', { type: 'PLAYING' })
+  client.user.setActivity('A lívia no inferno', { type: 'PLAYING' })
   console.log(`${client.user.tag} is ready!`)
 })
 
@@ -32,16 +33,31 @@ client.on('messageCreate', message =>{
   const command = args.shift().toLowerCase()
   if(command === "ping"){
       client.commands.get('ping').execute(message, args);
+      return
   }
   if(command === 'clear'){
-    client.commands.get('clear').execute(message, args);
+    if(!isNaN(args)){
+      client.commands.get('clear').execute(message, args);
+      return
+    }else{
+      message.reply('Insira um valor válido!');
+      return
+    }
   }
   if(command === 'pokemon'){
     client.commands.get('pokemon').execute(message, args);
+    return
+  }
+  if(command === 'help'){
+    client.commands.get('help').execute(message);
+    return
   }
   if(command === 'commands'){
     client.commands.get('commands').execute(message);
-  } 
+    return
+  }
+  const user = userMention(message.member.user.id);
+  message.reply({content: `${user} Comando não encontrado`, ephemeral: true})
 })
 
 client.login(token)
